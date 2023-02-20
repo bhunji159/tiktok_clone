@@ -22,6 +22,10 @@ class SignUpScreen extends StatelessWidget {
         .push(MaterialPageRoute(builder: (context) => const EmailScreen()));
   }
 
+  void _onAppleTap(BuildContext context) {
+    //구현 필요
+  }
+
   @override
   Widget build(BuildContext context) {
     SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.dark);
@@ -55,7 +59,7 @@ class SignUpScreen extends StatelessWidget {
                 icon: const FaIcon(FontAwesomeIcons.user),
               ),
               AuthButton(
-                onTap: _onEmainTap,
+                onTap: _onAppleTap,
                 text: "Continue with Apple",
                 icon: const FaIcon(FontAwesomeIcons.apple),
               ),
