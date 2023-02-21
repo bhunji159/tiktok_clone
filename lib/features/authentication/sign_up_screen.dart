@@ -54,12 +54,12 @@ class SignUpScreen extends StatelessWidget {
               ),
               Gaps.v40,
               AuthButton(
-                onTap: _onEmainTap,
+                onTap: () => _onEmainTap(context),
                 text: "Use phone / email / username",
                 icon: const FaIcon(FontAwesomeIcons.user),
               ),
               AuthButton(
-                onTap: _onAppleTap,
+                onTap: () => _onEmainTap(context),
                 text: "Continue with Apple",
                 icon: const FaIcon(FontAwesomeIcons.apple),
               ),

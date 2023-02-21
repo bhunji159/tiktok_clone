@@ -14,6 +14,7 @@ class LoginScreen extends StatelessWidget {
   }
 
   void _onEmailTap(BuildContext context) {
+    // EmailScreen => EmailLoginScreen replacing is required
     Navigator.of(context)
         .push(MaterialPageRoute(builder: (context) => const EmailScreen()));
   }
@@ -49,12 +50,12 @@ class LoginScreen extends StatelessWidget {
               ),
               Gaps.v40,
               AuthButton(
-                onTap: _onEmailTap,
+                onTap: () => _onEmailTap(context),
                 text: "Use phone / email / username",
                 icon: const FaIcon(FontAwesomeIcons.user),
               ),
               AuthButton(
-                onTap: _onAppleTap,
+                onTap: () => _onAppleTap(context),
                 text: "Continue with Apple",
                 icon: const FaIcon(FontAwesomeIcons.apple),
               ),

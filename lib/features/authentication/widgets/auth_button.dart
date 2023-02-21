@@ -5,7 +5,7 @@ import '../../../constants/sizes.dart';
 class AuthButton extends StatelessWidget {
   final FaIcon icon;
   final String text;
-  final void Function(BuildContext) onTap;
+  final void Function() onTap;
 
   const AuthButton({
     super.key,
@@ -17,7 +17,7 @@ class AuthButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => onTap(context),
+      onTap: () => onTap(),
       child: FractionallySizedBox(
         widthFactor: 1,
         child: Container(
