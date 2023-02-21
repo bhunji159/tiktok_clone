@@ -5,7 +5,7 @@ import 'package:tiktok_clone/constants/gaps.dart';
 import 'package:tiktok_clone/features/authentication/widgets/auth_button.dart';
 
 import '../../constants/sizes.dart';
-import 'email_screen.dart';
+import 'username_screen.dart';
 import 'log_in_screen.dart';
 
 class SignUpScreen extends StatelessWidget {
@@ -19,7 +19,7 @@ class SignUpScreen extends StatelessWidget {
 
   void _onEmainTap(BuildContext context) {
     Navigator.of(context)
-        .push(MaterialPageRoute(builder: (context) => const EmailScreen()));
+        .push(MaterialPageRoute(builder: (context) => const UsernameScreen()));
   }
 
   void _onAppleTap(BuildContext context) {
@@ -59,7 +59,7 @@ class SignUpScreen extends StatelessWidget {
                 icon: const FaIcon(FontAwesomeIcons.user),
               ),
               AuthButton(
-                onTap: () => _onEmainTap(context),
+                onTap: () => _onAppleTap(context),
                 text: "Continue with Apple",
                 icon: const FaIcon(FontAwesomeIcons.apple),
               ),
