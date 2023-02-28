@@ -1,6 +1,7 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:tiktok_clone/features/authentication/birthday_screen.dart';
 import 'package:tiktok_clone/features/authentication/widgets/form_button.dart';
 import '../../constants/gaps.dart';
 import '../../constants/sizes.dart';
@@ -36,42 +37,28 @@ class _PasswordScreemState extends State<PasswordScreen> {
   }
 
   bool _isPasswordLengthValid() {
-    if (_password.length < 8 || _password.length > 20) {
-      return false;
-    } else {
-      return true;
-    }
+    if (_password.length < 8 || _password.length > 20) return false;
+    return true;
   }
 
   bool _isPasswordValid() {
     final regExp = RegExp(
         r"(?=^)(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&amp;*()_+}{&quot;:;'?/&gt;.&lt;,])(?!.*\s).*$");
-
     if (!regExp.hasMatch(_password)) return false;
     return true;
-  }
-
-  void _onScaffoldTap() {
-    FocusScope.of(context).unfocus();
   }
 
   void _onSubmit() {
     if (!_isPasswordLengthValid() || !_isPasswordValid()) return;
     Navigator.of(context).push(MaterialPageRoute(
-      builder: (context) => const PasswordScreen(),
+      builder: (context) => const BirthdayScreen(),
     ));
-  }
-
-  void _toggleObscuredText() {
-    setState(() {
-      _isObscured = !_isObscured;
-    });
   }
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => _onScaffoldTap(),
+      onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
         appBar: AppBar(
           title: const Text(
@@ -112,7 +99,9 @@ class _PasswordScreemState extends State<PasswordScreen> {
                       ),
                       Gaps.h10,
                       GestureDetector(
-                        onTap: _toggleObscuredText,
+                        onTap: () => setState(() {
+                          _isObscured = !_isObscured;
+                        }),
                         child: FaIcon(
                           _isObscured
                               ? FontAwesomeIcons.eye
